@@ -4,12 +4,14 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+    state: {
+        musicUrl: null
+    },
+    mutations: {
+        change(state, url) {
+            state.musicUrl = url
+        }
+    },
+    actions: {},
+    modules: {}
 })

@@ -29,6 +29,7 @@ module.exports = {
         'eqeqeq': 'off',
         'yoda': 'off',
         'no-multi-spaces': 'off',
-        'spaced-comment': 'off'
+        'spaced-comment': 'off',
+        'object-curly-newline': 'off'
     }
 }

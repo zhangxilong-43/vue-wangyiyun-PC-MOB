@@ -8,6 +8,7 @@ import './assets/css/global.css'
 // import 'video.js/dist/video-js.css'
 import "./assets/icon/iconfont.js"
 import './assets/icon/iconfont.css'
+import './global.js'
 
 import axios from 'axios'
 axios.defaults.baseURL = 'https://autumnfish.cn/'

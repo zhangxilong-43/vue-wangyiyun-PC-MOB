@@ -2,7 +2,7 @@
     <div class="discovery">
 <!-- 轮播图 -->
         <div class="carousel">
-            <el-carousel :interval="4000" type="card" height="200px" v-if="srceenWidth > 1200">
+            <el-carousel :interval="4000" type="card" height="200px" v-if="mySrceenWidth > 1200">
                 <el-carousel-item v-for="item in bannerPCList" :key="item.encodeId">
                     <a :href="item.url"> <img :src="item.imageUrl" > </a>
                 </el-carousel-item>
@@ -23,7 +23,7 @@
                 <div class="oneList" v-for="item in songList" :key="item.id" >
                     <span class="copywriter">{{item.copywriter}}</span>
                     <img :src="item.picUrl">
-                    <a href="">
+                    <a href="javascript:;">
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-bofang1"></use>
                         </svg>
@@ -38,7 +38,7 @@
                 <el-col :span="2.5"><h6>最新音乐</h6></el-col>
             </el-row>
             <div class="row2">
-                <div class="oneNewSongs" v-for="item in newSongs" :key="item.id" >
+                <div class="oneNewSongs" v-for="item in newSongs" :key="item.id" @click="playMusic(item.id ,item.song.duration)">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-bofang1"></use>
                     </svg>
@@ -104,16 +104,19 @@ export default {
         async getNewSongs() {
             const { data: res } = await this.$http.get('/personalized/newsong')
             this.newSongs = res.result
+            // console.log(this.newSongs);
         },
         async getMVList() {
             const { data: res } = await this.$http.get('/personalized/mv')
             this.MVList = res.result
-            console.log(this.MVList);
+        },
+        playMusic(id, br) {
+            this.getMusicUrl(id, br)
         }
     },
     computed: {
-        srceenWidth() {
-            return document.documentElement.clientWidth || document.body.clientWidth
+        mySrceenWidth() {
+            return this.srceenWidth()
         }
     }
 }
@@ -131,7 +134,7 @@ export default {
     .songList, .newSongs, .MV {
         // height: 10.8rem;
         margin: 0.6rem auto;
-        background: rgba(86, 196, 221, 0.349);
+        background: #a9bac3c0;
         border: none;
         border-radius: .2rem;
         max-width: 1100px;
@@ -161,7 +164,7 @@ export default {
     overflow: hidden;
     border-radius: .2rem;
     img {
-        width: 14rem;
+        // width: 14rem;
         height: 100%;
         border-radius: .2rem;
     }

@@ -60,7 +60,7 @@
                                    :playsinline="true"
                                    customEventName="customstatechangedeventname">
                     </video-player> -->
-                    <audio src="" autoplay="autoplay" controls="controls" id="music"></audio>
+                    <audio :src="this.$store.state.musicUrl" autoplay="autoplay" controls="controls" id="music"></audio>
                 </el-footer>
 
             </el-container>
@@ -73,19 +73,12 @@
 export default {
     data() {
       return {
-        // playerOptions: {
-        //   // videojs options
-        //   muted: true,
-        //   language: 'en',
-        //   playbackRates: [0.7, 1.0, 1.5, 2.0],
-        //   sources: [{
-        //     type: "video/mp4",
-        //     src: "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm"
-        //   }],
-        //   poster: "/static/images/author.jpg",
-        // }
-      }
-    }
+        }
+    },
+    computed: {
+    },
+    methods: {
+    },
 }
 </script>
 
