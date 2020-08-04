@@ -174,6 +174,20 @@ export default {
     }
 }
 
+.mint-swipe /deep/ .mint-swipe-items-wrap {
+    height: 88%;
+}
+
+.mint-swipe /deep/ .mint-swipe-indicators {
+    bottom: 0rem;
+}
+
+.mint-swipe /deep/ .mint-swipe-indicator {
+    width: .16rem;
+    height: .16rem;
+    margin: 0 .06rem;
+}
+
 .songList p {
     margin: 0;
 }

@@ -30,6 +30,14 @@ const setHtmlFontSize = () => {
 window.onresize = setHtmlFontSize;
 setHtmlFontSize();
 
+Vue.filter('dateFormat', function(duration) {
+    let min = parseInt(duration / 1000 / 60)
+    let sec = parseInt((duration / 1000) % 60)
+    min = min < 10 ? '0' + min : min
+    sec = sec < 10 ? '0' + sec : sec
+    return min + ':' + sec
+})
+
 new Vue({
     router,
     store,

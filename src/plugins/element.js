@@ -22,7 +22,12 @@ import {
     Tabs,
     TabPane,
     Pagination,
+    Message,
+    Table,
+    TableColumn,
 } from 'element-ui';
+
+Vue.prototype.$message = Message
 
 Vue.use(Button)
 Vue.use(Select)
@@ -46,6 +51,8 @@ Vue.use(CarouselItem)
 Vue.use(Tabs)
 Vue.use(TabPane)
 Vue.use(Pagination)
+Vue.use(Table)
+Vue.use(TableColumn)
 
 import {
     Swipe,
@@ -55,9 +62,11 @@ import {
     TabItem,
     TabContainer,
     TabContainerItem,
-    InfiniteScroll
+    InfiniteScroll,
+    Lazyload,
 } from 'mint-ui';
 
+Vue.use(Lazyload);
 Vue.use(InfiniteScroll);
 Vue.component(TabContainer.name, TabContainer);
 Vue.component(TabContainerItem.name, TabContainerItem);

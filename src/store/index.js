@@ -10,6 +10,9 @@ export default new Vuex.Store({
     mutations: {
         change(state, url) {
             state.musicUrl = url
+        },
+        remove(state) {
+            state.musicUrl = ""
         }
     },
     actions: {},
