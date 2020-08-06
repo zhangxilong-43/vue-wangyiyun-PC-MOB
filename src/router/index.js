@@ -14,6 +14,8 @@ const Playlists = () =>
     import ( /* webpackChunkName:"login_home_welcome" */ '../components/playlists/playlists.vue')
 const Songs = () =>
     import ( /* webpackChunkName:"login_home_welcome" */ '../components/songs/songs.vue')
+const Search = () =>
+    import ( /* webpackChunkName:"login_home_welcome" */ '../components/search/search.vue')
 
 Vue.use(VueRouter)
 
@@ -28,8 +30,14 @@ const routes = [{
         { path: '/songs', component: Songs },
         { path: '/playlists', component: Playlists },
         { path: '/mvs', component: Mvs },
+        { path: '/search', component: Search },
     ]
 }]
+
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+    return originalPush.call(this, location).catch(err => err)
+}
 
 const router = new VueRouter({
     routes

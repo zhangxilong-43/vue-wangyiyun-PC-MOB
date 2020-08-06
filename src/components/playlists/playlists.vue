@@ -13,10 +13,10 @@
             </div>
         </div>
 
-        <el-tabs v-model="activeCat" @tab-click="handleClick" >
+        <el-tabs v-model="activeCat" @tab-click="handleClick" lazy>
             <el-tab-pane label="全部" name="0">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="item in playlists" :key="item.id" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" >
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -30,7 +30,7 @@
             </el-tab-pane>
             <el-tab-pane label="华语" name="1">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="item in playlists" :key="item.id" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" >
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -213,20 +213,18 @@
         </el-tabs>
 
         <el-pagination
-            background
-            small
             @current-change="handleCurrentChange"
             :current-page.sync="currentPage"
-            :page-size="10"
+            :page-size="12"
             layout="prev, pager, next"
-            :total="total"
-            v-if="mySrceenWidth > 480">
+            :total="total">
         </el-pagination>
         
     </el-card>
 </template>
 
 <script>
+
 export default {
     data() {
         return {
@@ -248,18 +246,18 @@ export default {
             // console.log(res.data.playlists[0]);
         },
         async getPlaylists() {
-            const num = this.mySrceenWidth > 480 ? 10 : 30 
             const { data: res } = await this.$http.get('/top/playlist/', { params: {
-                limit: num,
-                offset: (this.currentPage - 1) * 10 ,
+                limit: 12,
+                offset: (this.currentPage - 1) * 12 ,
                 cat: this.catLists[this.activeCat]
             } })
             this.playlists = res.playlists
-            this.mobList = res.playlists
-            // console.log(res);
             this.total = res.total
+            // console.log(res.playlists);
         },
         handleClick() {
+            this.playlists = []
+            this.onePlaylists = []
             this.getPlaylists()
             this.getOnePlaylists()
         },
@@ -384,7 +382,7 @@ export default {
 
 .onePlaylistsCon {
     width: 4rem;
-    margin: .273rem;
+    margin: .5rem;
     display: inline-block;
     position: relative;
     overflow: hidden;
@@ -437,7 +435,26 @@ export default {
 }
 
 .el-pagination {
-    margin: .2rem;
+    margin: .4rem 0 0 0;
+    padding: .04rem .1rem;
+    overflow: hidden;
+}
+
+.el-pagination /deep/ .el-pager li {
+    background: none;
+    padding: 0 .08rem;
+    font-size: .26rem;
+    min-width: .71rem;
+    height: .56rem;
+}
+
+.el-pagination /deep/  .btn-next, .el-pagination /deep/  .btn-prev {
+    background: none;
+    padding-right: .24rem;
+}
+
+.el-pagination /deep/ .el-pager li.active {
+    color: #5483b3;
 }
 
 </style>

@@ -30,6 +30,7 @@ module.exports = {
         'yoda': 'off',
         'no-multi-spaces': 'off',
         'spaced-comment': 'off',
-        'object-curly-newline': 'off'
+        'object-curly-newline': 'off',
+        'no-unused-vars': 'off'
     }
 }

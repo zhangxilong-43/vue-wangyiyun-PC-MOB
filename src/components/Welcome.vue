@@ -25,7 +25,6 @@ export default {
         async getSongList() {
             const { data: res } = await this.$http.get('/personalized?limit=5')
             this.songList = res.result
-            console.log(this.songList);
         }
     }
 }

@@ -25,9 +25,13 @@ import {
     Message,
     Table,
     TableColumn,
+    Dialog,
+    Input,
+    Notification,
 } from 'element-ui';
 
 Vue.prototype.$message = Message
+Vue.prototype.$notify = Notification
 
 Vue.use(Button)
 Vue.use(Select)
@@ -53,6 +57,8 @@ Vue.use(TabPane)
 Vue.use(Pagination)
 Vue.use(Table)
 Vue.use(TableColumn)
+Vue.use(Dialog)
+Vue.use(Input)
 
 import {
     Swipe,
@@ -64,14 +70,16 @@ import {
     TabContainerItem,
     InfiniteScroll,
     Lazyload,
+    Spinner,
 } from 'mint-ui';
 
 Vue.use(Lazyload);
 Vue.use(InfiniteScroll);
-Vue.component(TabContainer.name, TabContainer);
-Vue.component(TabContainerItem.name, TabContainerItem);
+Vue.component(Cell.name, Cell);
+Vue.component(Swipe.name, Swipe);
 Vue.component(Navbar.name, Navbar);
 Vue.component(TabItem.name, TabItem);
-Vue.component(Swipe.name, Swipe);
-Vue.component(Cell.name, Cell);
+Vue.component(Spinner.name, Spinner);
 Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(TabContainer.name, TabContainer);
+Vue.component(TabContainerItem.name, TabContainerItem);

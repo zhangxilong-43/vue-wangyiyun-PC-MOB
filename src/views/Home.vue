@@ -42,7 +42,15 @@
                         </i>
                         </el-tooltip>
                     </el-menu-item>
-
+                    <el-menu-item index="search">
+                        <el-tooltip class="item" effect="dark" content="最新MV" placement="right">
+                        <i>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-search"></use>
+                            </svg>
+                        </i>
+                        </el-tooltip>
+                    </el-menu-item>
                 </el-menu>
 
             </el-aside>

@@ -72,6 +72,7 @@
 </template>
 
 <script>
+import { MessageBox } from 'mint-ui';
 
 export default {
     name: 'work',
@@ -99,7 +100,7 @@ export default {
         },
         async getSongList() {
             const { data: res } = await this.$http.get('/personalized')
-            this.songList = [...res.result.slice(0,8)]
+            this.songList = [...res.result.slice(0,12)]
         },
         async getNewSongs() {
             const { data: res } = await this.$http.get('/personalized/newsong')
@@ -110,9 +111,16 @@ export default {
             const { data: res } = await this.$http.get('/personalized/mv')
             this.MVList = res.result
         },
-        playMusic(id, br) {
-            this.getMusicUrl(id, br)
-        }
+        async playMusic(id, br) {
+            const res = await this.getMusicUrl(id, br)
+            if (res !== 'ok') {
+                if (this.mySrceenWidth < 450) {
+                    MessageBox('提示', '抱歉，付费歌曲无法播放！');
+                } else {
+                    this.$message('抱歉，付费歌曲无法播放！')
+                }
+            }
+        },
     },
     computed: {
         mySrceenWidth() {
@@ -257,6 +265,7 @@ export default {
     box-sizing: border-box;
     padding-bottom: .3rem;
 }
+
 .oneNewSongs {
     position: relative;
     float: left;
@@ -313,6 +322,7 @@ export default {
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
 .MVList {
     cursor: pointer;
     position: relative;
@@ -358,4 +368,5 @@ export default {
         margin: 0;
     }
 }
+
 </style>

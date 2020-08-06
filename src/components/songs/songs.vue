@@ -1,8 +1,8 @@
 <template>
     <el-card class="newSongs">
-        <el-tabs v-model="activeCat" @tab-click="handleClick" >
+        <el-tabs v-model="activeCat" @tab-click="handleClick" lazy>
             <el-tab-pane label="全部" name="0">
-                <div class="songlistsCon" v-if="mySrceenWidth < 450">
+                <!-- <div class="songlistsCon" v-if="mySrceenWidth < 450">
                     <div class="oneSonglistsCon" v-for="item in mobSonglists" :key="item.id" >
                         <i class="el-icon-video-camera" v-if="item.mvid !== 0" @click="goMV"></i>
                         <img v-lazy="item.album.blurPicUrl" @click="playMusic(item.id, item.duration)">
@@ -13,6 +13,15 @@
                         </a>
                         <p>{{item.name}}</p>
                     </div>
+                </div> -->
+                <div class="mobSongsList" v-if="mySrceenWidth < 1200">
+                        <ul>
+                            <li v-for="item in mobSonglists" :key="item.id" @click="playMusicTab( {id: item.id,duration: item.duration} )">
+                                <h4>{{item.name}}</h4>
+                                <p>{{item.artists[0].name}}</p>
+                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click="goMV"></i>
+                            </li>
+                        </ul>
                 </div>
                 <el-table :data="PCSonglists" style="width: 100%" stripe v-else @row-click="playMusicTab" highlight-current-row > 
                     <el-table-column type="index" width="50"></el-table-column>
@@ -36,17 +45,14 @@
                 </el-table>
             </el-tab-pane>
             <el-tab-pane label="华语" name="7" >
-                <div class="songlistsCon" v-if="mySrceenWidth < 450">
-                    <div class="oneSonglistsCon" v-for="item in mobSonglists" :key="item.id" >
-                        <i class="el-icon-video-camera" v-if="item.mvid !== 0" @click="goMV"></i>
-                        <img v-lazy="item.album.blurPicUrl" @click="playMusic(item.id, item.duration)">
-                        <a @click="playMusic(item.id, item.duration)">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-bofang1"></use>
-                            </svg>
-                        </a>
-                        <p>{{item.name}}</p>
-                    </div>
+                <div class="mobSongsList" v-if="mySrceenWidth < 1200">
+                        <ul>
+                            <li v-for="item in mobSonglists" :key="item.id" @click="playMusicTab( {id: item.id,duration: item.duration} )">
+                                <h4>{{item.name}}</h4>
+                                <p>{{item.artists[0].name}}</p>
+                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click="goMV"></i>
+                            </li>
+                        </ul>
                 </div>
                 <el-table :data="PCSonglists" style="width: 100%" stripe v-else @row-click="playMusicTab" highlight-current-row > 
                     <el-table-column type="index" width="50"></el-table-column>
@@ -70,17 +76,14 @@
                 </el-table>
             </el-tab-pane>
             <el-tab-pane label="欧美" name="96">
-                <div class="songlistsCon" v-if="mySrceenWidth < 450">
-                    <div class="oneSonglistsCon" v-for="item in mobSonglists" :key="item.id" >
-                        <i class="el-icon-video-camera" v-if="item.mvid !== 0" @click="goMV"></i>
-                        <img v-lazy="item.album.blurPicUrl" @click="playMusic(item.id, item.duration)">
-                        <a @click="playMusic(item.id, item.duration)">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-bofang1"></use>
-                            </svg>
-                        </a>
-                        <p>{{item.name}}</p>
-                    </div>
+                <div class="mobSongsList" v-if="mySrceenWidth < 1200">
+                        <ul>
+                            <li v-for="item in mobSonglists" :key="item.id" @click="playMusicTab( {id: item.id,duration: item.duration} )">
+                                <h4>{{item.name}}</h4>
+                                <p>{{item.artists[0].name}}</p>
+                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click="goMV"></i>
+                            </li>
+                        </ul>
                 </div>
                 <el-table :data="PCSonglists" style="width: 100%" stripe v-else @row-click="playMusicTab" highlight-current-row > 
                     <el-table-column type="index" width="50"></el-table-column>
@@ -104,17 +107,14 @@
                 </el-table>
             </el-tab-pane>
             <el-tab-pane label="日本" name="8" >
-                <div class="songlistsCon" v-if="mySrceenWidth < 450">
-                    <div class="oneSonglistsCon" v-for="item in mobSonglists" :key="item.id" >
-                        <i class="el-icon-video-camera" v-if="item.mvid !== 0" @click="goMV"></i>
-                        <img v-lazy="item.album.blurPicUrl" @click="playMusic(item.id, item.duration)">
-                        <a @click="playMusic(item.id, item.duration)">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-bofang1"></use>
-                            </svg>
-                        </a>
-                        <p>{{item.name}}</p>
-                    </div>
+                <div class="mobSongsList" v-if="mySrceenWidth < 1200">
+                        <ul>
+                            <li v-for="item in mobSonglists" :key="item.id" @click="playMusicTab( {id: item.id,duration: item.duration} )">
+                                <h4>{{item.name}}</h4>
+                                <p>{{item.artists[0].name}}</p>
+                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click="goMV"></i>
+                            </li>
+                        </ul>
                 </div>
                 <el-table :data="PCSonglists" style="width: 100%" stripe v-else @row-click="playMusicTab" highlight-current-row > 
                     <el-table-column type="index" width="50"></el-table-column>
@@ -138,17 +138,14 @@
                 </el-table>
             </el-tab-pane>
             <el-tab-pane label="韩国" name="16">
-                <div class="songlistsCon" v-if="mySrceenWidth < 450">
-                    <div class="oneSonglistsCon" v-for="item in mobSonglists" :key="item.id" >
-                        <i class="el-icon-video-camera" v-if="item.mvid !== 0" @click="goMV"></i>
-                        <img v-lazy="item.album.blurPicUrl" @click="playMusic(item.id, item.duration)">
-                        <a @click="playMusic(item.id, item.duration)">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-bofang1"></use>
-                            </svg>
-                        </a>
-                        <p>{{item.name}}</p>
-                    </div>
+                <div class="mobSongsList" v-if="mySrceenWidth < 1200">
+                        <ul>
+                            <li v-for="item in mobSonglists" :key="item.id" @click="playMusicTab( {id: item.id,duration: item.duration} )">
+                                <h4>{{item.name}}</h4>
+                                <p>{{item.artists[0].name}}</p>
+                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click="goMV"></i>
+                            </li>
+                        </ul>
                 </div>
                 <el-table :data="PCSonglists" style="width: 100%" stripe v-else @row-click="playMusicTab" highlight-current-row > 
                     <el-table-column type="index" width="50"></el-table-column>
@@ -190,13 +187,18 @@ export default {
     },
     methods: {
         async getSonglists() {
+            if (!this.mobSonglists[0] || !this.PCSonglists[0]) {
+                this.$message({
+                    message: '努力加载中......',
+                    type: 'warning',
+                    duration: 1500,
+                });
+            }
             const { data: res } = await this.$http.get('/top/song', { params: {
                 type: this.activeCat
             } })
             this.mobSonglists = res.data.slice(0, 30)
             this.PCSonglists = res.data
-            // console.log(res);
-            console.log(this.PCSonglists);
         },
         handleClick() {
             this.mobSonglists = []
@@ -207,7 +209,7 @@ export default {
             const res = await this.getMusicUrl(id, br)
             if (res !== 'ok') {
                 if (this.mySrceenWidth < 450) {
-                    MessageBox('提示', '抱歉，付费歌曲无法播放！');
+                    MessageBox('提示', '抱歉，付费歌曲无法播放！')
                 } else {
                     this.$message('抱歉，付费歌曲无法播放！')
                 }
@@ -330,6 +332,37 @@ export default {
 
 .el-table /deep/ tr {
     background-color: #cedbeda3;
+}
+
+.mobSongsList {
+    li {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        box-sizing: border-box;
+        margin: .3rem 0;
+        padding: .3rem;
+        border: .01rem solid #cacbf1c7;
+        border-radius: .3rem;
+        background-color: #c7e7ea;
+        h4 {
+            margin: .1rem 0;
+            font-size: .36rem;
+        }
+        p {
+            margin: 0;
+            font-size: .24rem;
+        }
+        i {
+            position: absolute;
+            top: 31%;
+            left: 90%;
+            z-index: 2;
+        }
+    }
 }
 
 </style>
