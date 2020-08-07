@@ -36,8 +36,5 @@
         "less-loader": "^5.0.0",
         "vant": "^2.9.4",
         "vue-template-compiler": "^2.6.11"
-    },
-    "usingComponents": {
-        "van-loading": "@vant/weapp/loading/index"
     }
 }

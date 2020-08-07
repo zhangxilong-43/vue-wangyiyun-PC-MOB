@@ -16,7 +16,7 @@
         <el-tabs v-model="activeCat" @tab-click="handleClick" lazy>
             <el-tab-pane label="全部" name="0">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -30,7 +30,7 @@
             </el-tab-pane>
             <el-tab-pane label="华语" name="1">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -44,7 +44,7 @@
             </el-tab-pane>
             <el-tab-pane label="流行" name="2">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="item in playlists" :key="item.id" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -58,7 +58,7 @@
             </el-tab-pane>
             <el-tab-pane label="说唱" name="3">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="item in playlists" :key="item.id" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -72,7 +72,7 @@
             </el-tab-pane>
             <el-tab-pane label="摇滚" name="4">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="item in playlists" :key="item.id" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -86,7 +86,7 @@
             </el-tab-pane>
             <el-tab-pane label="民谣" name="5">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="item in playlists" :key="item.id" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -100,7 +100,7 @@
             </el-tab-pane>
             <el-tab-pane label="电子" name="6">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="item in playlists" :key="item.id" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -114,7 +114,7 @@
             </el-tab-pane>
             <el-tab-pane label="欧美" name="7">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="item in playlists" :key="item.id" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -128,7 +128,7 @@
             </el-tab-pane>
             <el-tab-pane label="轻音乐" name="8">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="item in playlists" :key="item.id" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -142,7 +142,7 @@
             </el-tab-pane>
             <el-tab-pane label="影视原声" name="9">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="item in playlists" :key="item.id" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -156,7 +156,7 @@
             </el-tab-pane>
             <el-tab-pane label="ACG" name="10">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="item in playlists" :key="item.id" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -170,7 +170,7 @@
             </el-tab-pane>
             <el-tab-pane label="怀旧" name="11">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="item in playlists" :key="item.id" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -184,7 +184,7 @@
             </el-tab-pane>
             <el-tab-pane label="治愈" name="12">
                 <div class="playlistsCon">
-                    <div class="onePlaylistsCon" v-for="item in playlists" :key="item.id" >
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
@@ -198,7 +198,7 @@
             </el-tab-pane>
             <!-- <el-tab-pane label="旅行" name="13" >
                 <div class="playlistsCon" v-if="appShow">
-                    <div class="onePlaylistsCon" v-for="item in playlists" :key="item.id">
+                    <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i">
                         <span class="copywriter">播放量{{item.playCount}}</span>
                         <img :src="item && item.coverImgUrl" >
                         <a href="javascript:;">
@@ -243,7 +243,6 @@ export default {
                 cat: this.catLists[this.activeCat]
             } })
             this.onePlaylists = res.data.playlists[0]
-            // console.log(res.data.playlists[0]);
         },
         async getPlaylists() {
             const { data: res } = await this.$http.get('/top/playlist/', { params: {
@@ -253,7 +252,6 @@ export default {
             } })
             this.playlists = res.playlists
             this.total = res.total
-            // console.log(res.playlists);
         },
         handleClick() {
             this.playlists = []
@@ -354,30 +352,6 @@ export default {
         background-color: rgb(255 255 255 / 76%);
         // z-index: 2;
     }
-}
-
-.el-tabs {
-    margin-top: .4rem;
-}
-
-.el-tab-pane {
-    margin-top: .2rem;
-}
-
-.el-tabs /deep/ .el-tabs__nav-prev {
-    font-size: large;
-}
-
-.el-tabs /deep/ .el-tabs__nav-next {
-    font-size: large;
-}
-
-.el-tabs /deep/ .el-tabs__item {
-    padding: 0 .2rem!important;
-}
-
-.el-tabs /deep/ .el-tabs__item.is-active {
-    color: #7ba8e4;
 }
 
 .onePlaylistsCon {

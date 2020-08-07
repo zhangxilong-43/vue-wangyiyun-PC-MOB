@@ -3,13 +3,13 @@
 <!-- 轮播图 -->
         <div class="carousel">
             <el-carousel :interval="4000" type="card" height="200px" v-if="mySrceenWidth > 1200">
-                <el-carousel-item v-for="item in bannerPCList" :key="item.encodeId">
+                <el-carousel-item v-for="(item, i) in bannerPCList" :key="i">
                     <a :href="item.url"> <img :src="item.imageUrl" > </a>
                 </el-carousel-item>
             </el-carousel>
 
             <mt-swipe :auto="4000" v-else>
-                <mt-swipe-item v-for="item in bannerMobList" :key="item.bannerId">
+                <mt-swipe-item v-for="(item, i) in bannerPCList" :key="i">
                     <a :href="item.url"><img :src="item.pic"></a>
                 </mt-swipe-item>
             </mt-swipe>
@@ -20,10 +20,10 @@
                 <el-col :span="2.5"><h6>推荐歌单</h6></el-col>
             </el-row>
             <div class="row1">
-                <div class="oneList" v-for="item in songList" :key="item.id" >
+                <div class="oneList" v-for="(item, i) in songList" :key="i" @click="getSongsListsDetail(item.id)">
                     <span class="copywriter">{{item.copywriter}}</span>
                     <img :src="item.picUrl">
-                    <a href="javascript:;">
+                    <a>
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-bofang1"></use>
                         </svg>
@@ -38,7 +38,7 @@
                 <el-col :span="2.5"><h6>最新音乐</h6></el-col>
             </el-row>
             <div class="row2">
-                <div class="oneNewSongs" v-for="item in newSongs" :key="item.id" @click="playMusic(item.id ,item.song.duration)">
+                <div class="oneNewSongs" v-for="(item, i) in newSongs" :key="i" @click="playMusic(item.id ,item.song.duration)">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-bofang1"></use>
                     </svg>
@@ -56,7 +56,7 @@
                 <el-col :span="2.5"><h6>推荐MV</h6></el-col>
             </el-row>
             <div class="row3">
-                <div class="MVList" v-for="item in MVList" :key="item.id" >
+                <div class="MVList" v-for="(item, i) in MVList" :key="i" @click="goMV(item.id)">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-bofang1"></use>
                     </svg>
@@ -244,9 +244,9 @@ export default {
     }
     p {
         width: 4rem;
-        text-overflow: ellipsis;
         font-size: .28rem;
         margin: 0;
+        text-overflow: ellipsis;
         overflow: hidden;
         display: -webkit-box;
         -webkit-box-orient: vertical;

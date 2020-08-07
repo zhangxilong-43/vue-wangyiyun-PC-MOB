@@ -30,12 +30,33 @@ const setHtmlFontSize = () => {
 window.onresize = setHtmlFontSize;
 setHtmlFontSize();
 
-Vue.filter('dateFormat', function(duration) {
+Vue.filter('dateFormat1', function(duration) {
     let min = parseInt(duration / 1000 / 60)
     let sec = parseInt((duration / 1000) % 60)
     min = min < 10 ? '0' + min : min
     sec = sec < 10 ? '0' + sec : sec
     return min + ':' + sec
+})
+
+Vue.filter('dateFormat2', function(originVal) {
+    const dt = new Date(originVal)
+    const y = dt.getFullYear()
+    const m = (dt.getMonth() + 1 + '').padStart(2, '0')
+    const d = (dt.getDate() + 1 + '').padStart(2, '0')
+
+    return `${y}-${m}-${d} `
+})
+
+Vue.filter('dateFormat3', function(originVal) {
+    const dt = new Date(originVal)
+    const y = dt.getFullYear()
+    const m = (dt.getMonth() + 1 + '').padStart(2, '0')
+    const d = (dt.getDate() + 1 + '').padStart(2, '0')
+    const hh = (dt.getHours() + 1 + '').padStart(2, '0')
+    const mm = (dt.getMinutes() + 1 + '').padStart(2, '0')
+    const ss = (dt.getSeconds() + 1 + '').padStart(2, '0')
+
+    return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
 })
 
 new Vue({

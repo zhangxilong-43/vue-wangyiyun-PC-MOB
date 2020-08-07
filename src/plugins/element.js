@@ -28,6 +28,7 @@ import {
     Dialog,
     Input,
     Notification,
+    Tag,
 } from 'element-ui';
 
 Vue.prototype.$message = Message
@@ -59,6 +60,7 @@ Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Dialog)
 Vue.use(Input)
+Vue.use(Tag)
 
 import {
     Swipe,

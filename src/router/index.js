@@ -4,8 +4,8 @@ import VueRouter from 'vue-router'
 
 const Home = () =>
     import ( /* webpackChunkName:"login_home_welcome" */ '../views/Home.vue')
-const Welcome = () =>
-    import ( /* webpackChunkName:"login_home_welcome" */ '../components/Welcome.vue')
+    // const Welcome = () =>
+    //     import ( /* webpackChunkName:"login_home_welcome" */ '../components/Welcome.vue')
 const Discovery = () =>
     import ( /* webpackChunkName:"login_home_welcome" */ '../components/discovery/discovery.vue')
 const Mvs = () =>
@@ -16,6 +16,10 @@ const Songs = () =>
     import ( /* webpackChunkName:"login_home_welcome" */ '../components/songs/songs.vue')
 const Search = () =>
     import ( /* webpackChunkName:"login_home_welcome" */ '../components/search/search.vue')
+const SongsListsDetail = () =>
+    import ( /* webpackChunkName:"login_home_welcome" */ '../components/songsListsDetail/songsListsDetail.vue')
+const MVsDetail = () =>
+    import ( /* webpackChunkName:"login_home_welcome" */ '../components/MVsDetail/MVsDetail.vue')
 
 Vue.use(VueRouter)
 
@@ -23,14 +27,15 @@ const routes = [{
     path: '/',
     name: 'Home',
     component: Home,
-    redirect: '/welcome',
+    redirect: '/discovery',
     children: [
-        { path: '/welcome', component: Welcome },
+        { path: '/MVsdetail', component: MVsDetail },
         { path: '/discovery', component: Discovery },
         { path: '/songs', component: Songs },
         { path: '/playlists', component: Playlists },
         { path: '/mvs', component: Mvs },
         { path: '/search', component: Search },
+        { path: '/songsListsDetail', component: SongsListsDetail },
     ]
 }]
 
@@ -41,6 +46,13 @@ VueRouter.prototype.push = function push(location) {
 
 const router = new VueRouter({
     routes
+})
+
+router.beforeEach((to, from, next) => {
+    if (to.path !== '/songsListsDetail') return next()
+    const id = window.sessionStorage.getItem('detailId')
+    if (id === 0) return next('/discovery')
+    next()
 })
 
 export default router

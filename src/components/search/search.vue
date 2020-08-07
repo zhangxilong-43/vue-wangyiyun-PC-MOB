@@ -32,7 +32,7 @@
                         <el-table-column prop="name" label="歌名" >
                             <template slot-scope="scope">
                                 {{scope.row.name}}
-                                <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click="goMV"></i>
+                                <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="myGoMV(item.mvid)"></i>
                             </template>  
                         </el-table-column>
                         <el-table-column prop="artists[0].name" label="歌手" :width="80"></el-table-column>
@@ -52,7 +52,7 @@
                             <li v-for="item in searchSongsRes" :key="item.id" @click="playMusicTab( {id: item.id,duration: item.duration} )">
                                 <h4>{{item.name}}</h4>
                                 <p>{{item.artists[0].name}}</p>
-                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click="goMV"></i>
+                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
                             </li>
                         </ul>
                     </div>
@@ -73,7 +73,7 @@
                 </el-tab-pane>
                 <el-tab-pane label="MV" name="2">
                     <div class="MVLists">
-                        <div class="oneMV" v-for="item in searchSongsMVsRes" :key="item.id" >
+                        <div class="oneMV" v-for="item in searchSongsMVsRes" :key="item.id" @click="goMV(item.id)">
                             <svg class="icon" aria-hidden="true">
                                 <use xlink:href="#icon-bofang1"></use>
                             </svg>
@@ -138,7 +138,6 @@ export default {
                 });
             }
             this.total = res.result.songCount
-            console.log(res);
         },
         async searchSongsLists() {
             const { data: res } = await this.$http.get('/search', { params: {
@@ -175,10 +174,6 @@ export default {
         playMusicTab(row) {
             this.playMusic(row.id, row.duration)
         },
-        goMV() {
-            this.$store.commit('remove')
-            this.$router.history.push('/welcome')
-        },
         handleClick(tab) {
             this.currentPage = 1
             if ( tab.label === '歌曲' ) {
@@ -202,7 +197,7 @@ export default {
             } else if (this.activeCat === '2') {
                 this.searchSongsMVs()
             }
-        }
+        },
     },
     computed: {
         mySrceenWidth() {
@@ -294,7 +289,7 @@ export default {
         p {
             font-size: .28rem;
             margin: 0 0 .2rem .2rem;
-            display: inline-block;
+            text-align: left;
         }
     }
 }

@@ -2,24 +2,12 @@
     <el-card class="newSongs">
         <el-tabs v-model="activeCat" @tab-click="handleClick" lazy>
             <el-tab-pane label="全部" name="0">
-                <!-- <div class="songlistsCon" v-if="mySrceenWidth < 450">
-                    <div class="oneSonglistsCon" v-for="item in mobSonglists" :key="item.id" >
-                        <i class="el-icon-video-camera" v-if="item.mvid !== 0" @click="goMV"></i>
-                        <img v-lazy="item.album.blurPicUrl" @click="playMusic(item.id, item.duration)">
-                        <a @click="playMusic(item.id, item.duration)">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-bofang1"></use>
-                            </svg>
-                        </a>
-                        <p>{{item.name}}</p>
-                    </div>
-                </div> -->
                 <div class="mobSongsList" v-if="mySrceenWidth < 1200">
                         <ul>
                             <li v-for="item in mobSonglists" :key="item.id" @click="playMusicTab( {id: item.id,duration: item.duration} )">
                                 <h4>{{item.name}}</h4>
                                 <p>{{item.artists[0].name}}</p>
-                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click="goMV"></i>
+                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click.stop.stop="goMV(item.mvid)"></i>
                             </li>
                         </ul>
                 </div>
@@ -28,7 +16,7 @@
                     <el-table-column prop="name" label="歌名" >
                         <template slot-scope="scope">
                             {{scope.row.name}}
-                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click="goMV"></i>
+                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
                         </template>  
                     </el-table-column>
                     <el-table-column prop="artists[0].name" label="歌手" width="180"></el-table-column>
@@ -39,7 +27,7 @@
                     </el-table-column>
                     <el-table-column prop="duration" label="时长" width="90">
                         <template slot-scope="scope">
-                            {{scope.row.duration | dateFormat}}
+                            {{scope.row.duration | dateFormat1}}
                         </template>
                     </el-table-column>
                 </el-table>
@@ -50,7 +38,7 @@
                             <li v-for="item in mobSonglists" :key="item.id" @click="playMusicTab( {id: item.id,duration: item.duration} )">
                                 <h4>{{item.name}}</h4>
                                 <p>{{item.artists[0].name}}</p>
-                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click="goMV"></i>
+                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
                             </li>
                         </ul>
                 </div>
@@ -59,7 +47,7 @@
                     <el-table-column prop="name" label="歌名" >
                         <template slot-scope="scope">
                             {{scope.row.name}}
-                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click="goMV"></i>
+                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
                         </template>                          
                     </el-table-column>
                     <el-table-column prop="artists[0].name" label="歌手" width="180"></el-table-column>
@@ -81,7 +69,7 @@
                             <li v-for="item in mobSonglists" :key="item.id" @click="playMusicTab( {id: item.id,duration: item.duration} )">
                                 <h4>{{item.name}}</h4>
                                 <p>{{item.artists[0].name}}</p>
-                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click="goMV"></i>
+                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
                             </li>
                         </ul>
                 </div>
@@ -90,7 +78,7 @@
                     <el-table-column prop="name" label="歌名" >
                         <template slot-scope="scope">
                             {{scope.row.name}}
-                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click="goMV"></i>
+                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
                         </template>  
                     </el-table-column>
                     <el-table-column prop="artists[0].name" label="歌手" width="180"></el-table-column>
@@ -112,7 +100,7 @@
                             <li v-for="item in mobSonglists" :key="item.id" @click="playMusicTab( {id: item.id,duration: item.duration} )">
                                 <h4>{{item.name}}</h4>
                                 <p>{{item.artists[0].name}}</p>
-                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click="goMV"></i>
+                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
                             </li>
                         </ul>
                 </div>
@@ -121,7 +109,7 @@
                     <el-table-column prop="name" label="歌名" >
                         <template slot-scope="scope">
                             {{scope.row.name}}
-                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click="goMV"></i>
+                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
                         </template>  
                     </el-table-column>
                     <el-table-column prop="artists[0].name" label="歌手" width="180"></el-table-column>
@@ -143,7 +131,7 @@
                             <li v-for="item in mobSonglists" :key="item.id" @click="playMusicTab( {id: item.id,duration: item.duration} )">
                                 <h4>{{item.name}}</h4>
                                 <p>{{item.artists[0].name}}</p>
-                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click="goMV"></i>
+                                <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
                             </li>
                         </ul>
                 </div>
@@ -152,7 +140,7 @@
                     <el-table-column prop="name" label="歌名" >
                         <template slot-scope="scope">
                             {{scope.row.name}}
-                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click="goMV"></i>
+                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
                         </template>  
                     </el-table-column>
                     <el-table-column prop="artists[0].name" label="歌手" width="180"></el-table-column>
@@ -218,10 +206,7 @@ export default {
         playMusicTab(row) {
             this.playMusic(row.id, row.duration)
         },
-        goMV() {
-            this.$store.commit('remove')
-            this.$router.history.push('/welcome')
-        }
+
     },
     created() {
         this.getSonglists()
@@ -240,31 +225,11 @@ export default {
     margin: 0 auto;
 }
 
-.el-tabs /deep/ .el-tabs__item.is-active {
-    color: #49698a;
-}
-
-.el-tabs /deep/ .el-tabs__active-bar {
-    background-color: #8286da;
-}
-
-.el-tabs /deep/ .el-tabs__item {
-    padding: 0 .4rem;
-    height: .8rem;
-    line-height: .8rem;
-    font-size: .28rem;
-}
-
-.el-tabs /deep/ .el-tabs__nav-wrap.is-scrollable {
-    padding: 0 .4rem;
-}
-
 .oneSonglistsCon {
     width: 2rem;
     margin: .6rem;
     display: inline-block;
     position: relative;
-    // overflow: hidden;
     &:hover .copywriter {
         top: 0;
         z-index: 2;

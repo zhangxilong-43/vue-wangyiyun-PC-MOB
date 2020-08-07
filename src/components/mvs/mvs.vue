@@ -8,7 +8,7 @@
             <div class="tab">排序：<el-button :class="order[i] === params3 ? 'activeBtn' : ''" @click="selectOrder(i)" round size="mini" v-for="(item, i) in order" :key="i">{{ item }}</el-button></div>
         </div>
         <div class="MVLists">
-            <div class="oneMV" v-for="item in MVLists" :key="item.id" >
+            <div class="oneMV" v-for="item in MVLists" :key="item.id" @click="goMV(item.id)">
                 <svg class="icon" aria-hidden="true">
                     <use xlink:href="#icon-bofang1"></use>
                 </svg>
@@ -23,7 +23,7 @@
     <div class="mvsMob" v-else>
         <i class="el-icon-s-operation" @click="dialogVisible = true">筛选</i>
         <div class="allMVs">
-            <div class="oneMV" v-for="item in MVLists" :key="item.id" >
+            <div class="oneMV" v-for="item in MVLists" :key="item.id" @click="goMV(item.id)">
                 <svg class="icon" aria-hidden="true">
                     <use xlink:href="#icon-bofang1"></use>
                 </svg>
@@ -84,7 +84,6 @@ export default {
             } } )
             this.MVLists = res.data
             this.total = res.count
-            // console.log(res);
         },
         selectArea(i) {
             this.params1 = this.area[i]

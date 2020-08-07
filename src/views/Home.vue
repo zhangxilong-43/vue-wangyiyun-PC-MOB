@@ -4,8 +4,7 @@
         <el-container>
 
             <el-aside>
-                 <!-- default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" -->
-                <el-menu :collapse="true" background-color="#A9BAC3" active-text-color="#fff" router>
+                <el-menu :collapse="true" background-color="#A9BAC3" active-text-color="#409EFF" router >
                     <el-menu-item index="discovery">
                         <el-tooltip class="item" effect="dark" content="发现音乐" placement="right">
                             <i>
@@ -43,7 +42,7 @@
                         </el-tooltip>
                     </el-menu-item>
                     <el-menu-item index="search">
-                        <el-tooltip class="item" effect="dark" content="最新MV" placement="right">
+                        <el-tooltip class="item" effect="dark" content="搜索音乐" placement="right">
                         <i>
                             <svg class="icon" aria-hidden="true">
                                 <use xlink:href="#icon-search"></use>
@@ -84,8 +83,6 @@ export default {
         }
     },
     computed: {
-    },
-    methods: {
     },
 }
 </script>

@@ -5,15 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        musicUrl: null
+        musicUrl: null,
     },
     mutations: {
-        change(state, url) {
+        changemusicUrl(state, url) {
             state.musicUrl = url
         },
-        remove(state) {
-            state.musicUrl = ""
-        }
+        removemusicUrl(state) {
+            state.musicUrl = null
+        },
     },
     actions: {},
     modules: {}
