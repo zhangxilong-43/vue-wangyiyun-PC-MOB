@@ -8,6 +8,7 @@
                                 <h4>{{item.name}}</h4>
                                 <p>{{item.artists[0].name}}</p>
                                 <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click.stop.stop="goMV(item.mvid)"></i>
+                                <span>{{ item.duration | dateFormat1 }}</span>
                             </li>
                         </ul>
                 </div>
@@ -16,7 +17,7 @@
                     <el-table-column prop="name" label="歌名" >
                         <template slot-scope="scope">
                             {{scope.row.name}}
-                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
+                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(scope.row.mvid)"></i>
                         </template>  
                     </el-table-column>
                     <el-table-column prop="artists[0].name" label="歌手" width="180"></el-table-column>
@@ -39,6 +40,7 @@
                                 <h4>{{item.name}}</h4>
                                 <p>{{item.artists[0].name}}</p>
                                 <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
+                                <span>{{ item.duration | dateFormat1 }}</span>
                             </li>
                         </ul>
                 </div>
@@ -47,7 +49,7 @@
                     <el-table-column prop="name" label="歌名" >
                         <template slot-scope="scope">
                             {{scope.row.name}}
-                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
+                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(scope.row.mvid)"></i>
                         </template>                          
                     </el-table-column>
                     <el-table-column prop="artists[0].name" label="歌手" width="180"></el-table-column>
@@ -58,7 +60,7 @@
                     </el-table-column>
                     <el-table-column prop="duration" label="时长" width="90">
                         <template slot-scope="scope">
-                            {{scope.row.duration | dateFormat}}
+                            {{scope.row.duration | dateFormat1}}
                         </template>
                     </el-table-column>
                 </el-table>
@@ -70,6 +72,7 @@
                                 <h4>{{item.name}}</h4>
                                 <p>{{item.artists[0].name}}</p>
                                 <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
+                                <span>{{ item.duration | dateFormat1 }}</span>
                             </li>
                         </ul>
                 </div>
@@ -78,7 +81,7 @@
                     <el-table-column prop="name" label="歌名" >
                         <template slot-scope="scope">
                             {{scope.row.name}}
-                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
+                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(scope.row.mvid)"></i>
                         </template>  
                     </el-table-column>
                     <el-table-column prop="artists[0].name" label="歌手" width="180"></el-table-column>
@@ -89,7 +92,7 @@
                     </el-table-column>
                     <el-table-column prop="duration" label="时长" width="90">
                         <template slot-scope="scope">
-                            {{scope.row.duration | dateFormat}}
+                            {{scope.row.duration | dateFormat1}}
                         </template>
                     </el-table-column>
                 </el-table>
@@ -101,6 +104,7 @@
                                 <h4>{{item.name}}</h4>
                                 <p>{{item.artists[0].name}}</p>
                                 <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
+                                <span>{{ item.duration | dateFormat1 }}</span>
                             </li>
                         </ul>
                 </div>
@@ -109,7 +113,7 @@
                     <el-table-column prop="name" label="歌名" >
                         <template slot-scope="scope">
                             {{scope.row.name}}
-                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
+                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(scope.row.mvid)"></i>
                         </template>  
                     </el-table-column>
                     <el-table-column prop="artists[0].name" label="歌手" width="180"></el-table-column>
@@ -120,7 +124,7 @@
                     </el-table-column>
                     <el-table-column prop="duration" label="时长" width="90">
                         <template slot-scope="scope">
-                            {{scope.row.duration | dateFormat}}
+                            {{scope.row.duration | dateFormat1}}
                         </template>
                     </el-table-column>
                 </el-table>
@@ -132,6 +136,7 @@
                                 <h4>{{item.name}}</h4>
                                 <p>{{item.artists[0].name}}</p>
                                 <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
+                                <span>{{ item.duration | dateFormat1 }}</span>
                             </li>
                         </ul>
                 </div>
@@ -140,7 +145,7 @@
                     <el-table-column prop="name" label="歌名" >
                         <template slot-scope="scope">
                             {{scope.row.name}}
-                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
+                            <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(scope.row.mvid)"></i>
                         </template>  
                     </el-table-column>
                     <el-table-column prop="artists[0].name" label="歌手" width="180"></el-table-column>
@@ -151,7 +156,7 @@
                     </el-table-column>
                     <el-table-column prop="duration" label="时长" width="90">
                         <template slot-scope="scope">
-                            {{scope.row.duration | dateFormat}}
+                            {{scope.row.duration | dateFormat1}}
                         </template>
                     </el-table-column>
                 </el-table>
@@ -280,16 +285,6 @@ export default {
     }
 }
 
-.el-icon-video-camera {
-    position: absolute;
-    top: -0.3rem;
-    left: -0.3rem;
-    background-color: rgba(243, 165, 165, 0.753);
-    border-radius: 50%;
-    padding: .1rem;
-    cursor: pointer;
-}
-
 .el-table .icon {
     top: 11.7px;
     left: -21px;
@@ -323,9 +318,18 @@ export default {
         }
         i {
             position: absolute;
-            top: 31%;
-            left: 90%;
+            top: 50%;
+            left: 82%;
             z-index: 2;
+            transform: translate(-50%, -50%);
+        }
+        span {
+            font-size: .32rem;
+            color: #252925a6;
+            position: absolute;
+            top: 50%;
+            left: 92%;
+            transform: translate(-50%, -50%);
         }
     }
 }

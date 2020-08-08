@@ -6,7 +6,7 @@
             <div class="mv-info">
                 <h3>{{MVInfo.name}}</h3>
                 <span>发布：{{MVInfo.publishTime}}</span>
-                <p>播放量：{{MVInfo.playCount}}</p>
+                <p>播放量：{{MVInfo.playCount | dateFormat4}}</p>
             </div>
             <div class="singer-info">
                 <div>
@@ -79,7 +79,7 @@
                     <use xlink:href="#icon-bofang1"></use>
                 </svg>
                 <img :src="item.cover">
-                <span class="iconfont icon-bofang">{{item.playCount}}</span>
+                <span class="iconfont icon-bofang">{{item.playCount | dateFormat4}}</span>
                 <div class="time">{{item.duration | dateFormat1}}</div>
                 <div class="txt">
                     <h3>{{item.name}}</h3>
@@ -417,7 +417,7 @@ export default {
         left: 2.25rem;
         width: .8rem;
         height: .8rem;
-        opacity: .5;
+        opacity: .2;
         transition-duration: .5s;
         transform: translate(-50%, -50%);
     }

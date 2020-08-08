@@ -9,7 +9,7 @@
             <img :src="onePlaylists.coverImgUrl" class="bigPic">
             <div class="content-wrap">
                 <div class="tag">精品歌单</div>
-                <p class="info" >{{onePlaylists.description}}</p>
+                <p class="info" @click="dialogVisible = true">{{onePlaylists.description}}</p>
             </div>
         </div>
 
@@ -17,7 +17,7 @@
             <el-tab-pane label="全部" name="0">
                 <div class="playlistsCon">
                     <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
-                        <span class="copywriter">播放量{{item.playCount}}</span>
+                        <span class="copywriter">播放量{{ item.playCount | dateFormat4 | dateFormat4}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
                             <svg class="icon" aria-hidden="true">
@@ -31,7 +31,7 @@
             <el-tab-pane label="华语" name="1">
                 <div class="playlistsCon">
                     <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
-                        <span class="copywriter">播放量{{item.playCount}}</span>
+                        <span class="copywriter">播放量{{ item.playCount | dateFormat4}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
                             <svg class="icon" aria-hidden="true">
@@ -45,7 +45,7 @@
             <el-tab-pane label="流行" name="2">
                 <div class="playlistsCon">
                     <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
-                        <span class="copywriter">播放量{{item.playCount}}</span>
+                        <span class="copywriter">播放量{{ item.playCount | dateFormat4}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
                             <svg class="icon" aria-hidden="true">
@@ -59,7 +59,7 @@
             <el-tab-pane label="说唱" name="3">
                 <div class="playlistsCon">
                     <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
-                        <span class="copywriter">播放量{{item.playCount}}</span>
+                        <span class="copywriter">播放量{{ item.playCount | dateFormat4}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
                             <svg class="icon" aria-hidden="true">
@@ -73,7 +73,7 @@
             <el-tab-pane label="摇滚" name="4">
                 <div class="playlistsCon">
                     <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
-                        <span class="copywriter">播放量{{item.playCount}}</span>
+                        <span class="copywriter">播放量{{ item.playCount | dateFormat4}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
                             <svg class="icon" aria-hidden="true">
@@ -87,7 +87,7 @@
             <el-tab-pane label="民谣" name="5">
                 <div class="playlistsCon">
                     <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
-                        <span class="copywriter">播放量{{item.playCount}}</span>
+                        <span class="copywriter">播放量{{ item.playCount | dateFormat4}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
                             <svg class="icon" aria-hidden="true">
@@ -101,7 +101,7 @@
             <el-tab-pane label="电子" name="6">
                 <div class="playlistsCon">
                     <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
-                        <span class="copywriter">播放量{{item.playCount}}</span>
+                        <span class="copywriter">播放量{{ item.playCount | dateFormat4}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
                             <svg class="icon" aria-hidden="true">
@@ -115,7 +115,7 @@
             <el-tab-pane label="欧美" name="7">
                 <div class="playlistsCon">
                     <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
-                        <span class="copywriter">播放量{{item.playCount}}</span>
+                        <span class="copywriter">播放量{{ item.playCount | dateFormat4}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
                             <svg class="icon" aria-hidden="true">
@@ -129,7 +129,7 @@
             <el-tab-pane label="轻音乐" name="8">
                 <div class="playlistsCon">
                     <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
-                        <span class="copywriter">播放量{{item.playCount}}</span>
+                        <span class="copywriter">播放量{{ item.playCount | dateFormat4}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
                             <svg class="icon" aria-hidden="true">
@@ -143,7 +143,7 @@
             <el-tab-pane label="影视原声" name="9">
                 <div class="playlistsCon">
                     <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
-                        <span class="copywriter">播放量{{item.playCount}}</span>
+                        <span class="copywriter">播放量{{ item.playCount | dateFormat4}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
                             <svg class="icon" aria-hidden="true">
@@ -157,7 +157,7 @@
             <el-tab-pane label="ACG" name="10">
                 <div class="playlistsCon">
                     <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
-                        <span class="copywriter">播放量{{item.playCount}}</span>
+                        <span class="copywriter">播放量{{ item.playCount | dateFormat4}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
                             <svg class="icon" aria-hidden="true">
@@ -171,7 +171,7 @@
             <el-tab-pane label="怀旧" name="11">
                 <div class="playlistsCon">
                     <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
-                        <span class="copywriter">播放量{{item.playCount}}</span>
+                        <span class="copywriter">播放量{{ item.playCount | dateFormat4}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
                             <svg class="icon" aria-hidden="true">
@@ -185,7 +185,7 @@
             <el-tab-pane label="治愈" name="12">
                 <div class="playlistsCon">
                     <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i" @click="getSongsListsDetail(item.id)">
-                        <span class="copywriter">播放量{{item.playCount}}</span>
+                        <span class="copywriter">播放量{{ item.playCount | dateFormat4}}</span>
                         <img :src="item.coverImgUrl">
                         <a href="javascript:;">
                             <svg class="icon" aria-hidden="true">
@@ -199,7 +199,7 @@
             <!-- <el-tab-pane label="旅行" name="13" >
                 <div class="playlistsCon" v-if="appShow">
                     <div class="onePlaylistsCon" v-for="(item,i) in playlists" :key="i">
-                        <span class="copywriter">播放量{{item.playCount}}</span>
+                        <span class="copywriter">播放量{{ item.playCount | dateFormat4}}</span>
                         <img :src="item && item.coverImgUrl" >
                         <a href="javascript:;">
                             <svg class="icon" aria-hidden="true">
@@ -219,8 +219,17 @@
             layout="prev, pager, next"
             :total="total">
         </el-pagination>
+
+        <el-dialog
+            title="简介"
+            :visible.sync="dialogVisible"
+            :width="dialogSize">
+            <pre class="description" v-html="onePlaylists.description">
+            </pre>
+        </el-dialog>
         
     </el-card>
+
 </template>
 
 <script>
@@ -234,6 +243,7 @@ export default {
             playlists: [],
             currentPage: 1,
             total: 0,
+            dialogVisible: false
         }
     },
     methods: {
@@ -277,7 +287,14 @@ export default {
                 return true
             }
             return false
-        }
+        },
+        dialogSize() {
+            if (this.srceenWidth() > 1000) {
+                return '50%'
+            } else {
+                return '70%'
+            }
+        },
     }
 }
 </script>
@@ -408,27 +425,9 @@ export default {
     }
 }
 
-.el-pagination {
-    margin: .4rem 0 0 0;
-    padding: .04rem .1rem;
-    overflow: hidden;
-}
-
-.el-pagination /deep/ .el-pager li {
-    background: none;
-    padding: 0 .08rem;
-    font-size: .26rem;
-    min-width: .71rem;
-    height: .56rem;
-}
-
-.el-pagination /deep/  .btn-next, .el-pagination /deep/  .btn-prev {
-    background: none;
-    padding-right: .24rem;
-}
-
-.el-pagination /deep/ .el-pager li.active {
-    color: #5483b3;
-}
+.description {
+    text-align: left;
+    // text-indent: 2em;
+} 
 
 </style>

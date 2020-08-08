@@ -13,7 +13,7 @@
                     <use xlink:href="#icon-bofang1"></use>
                 </svg>
                 <img :src="item.cover">
-                <span class="iconfont icon-bofang">{{item.playCount}}</span>
+                <span class="iconfont icon-bofang">{{item.playCount | dateFormat4}}</span>
                 <h3>{{item.name}}</h3>
             </div>
         </div>
@@ -28,7 +28,7 @@
                     <use xlink:href="#icon-bofang1"></use>
                 </svg>
                 <img :src="item.cover">
-                <span class="iconfont icon-bofang">{{item.playCount}}</span>
+                <span class="iconfont icon-bofang">{{item.playCount | dateFormat4}}</span>
                 <h3>{{item.name}}</h3>
             </div>
         </div>

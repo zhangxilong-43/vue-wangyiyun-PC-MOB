@@ -48,10 +48,11 @@
                     </el-table>
                     <div class="mobSongsList" v-else >
                         <ul>
-                            <li v-for="item in playlist.tracks" :key="item.id" @click="playMusicTab( {id: item.id,duration: item.duration} )">
+                            <li v-for="item in playlist.tracks" :key="item.id" @click="playMusicTab( {id: item.id,duration: item.dt} )">
                                 <h4>{{item.name}}</h4>
                                 <p>{{item.ar[0].name}}</p>
-                                <i class="el-icon-video-camera icon" v-if="item.mv !== 0" @click="goMV"></i>
+                                <i class="el-icon-video-camera icon" v-if="item.mv !== 0" @click.stop="goMV(item.mv)"></i>
+                                <span>{{ item.dt | dateFormat1 }}</span>
                             </li>
                         </ul>
                 </div>
@@ -113,7 +114,6 @@
                     </div>
                 </el-tab-pane>
             </el-tabs>
-
         </el-card>
     </div>
 </template>
@@ -224,10 +224,6 @@ export default {
 
 <style lang="less" scoped>
 .el-card {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: #a9bac3c0;
-    border: none;
     text-align: left;
 }
 
@@ -276,11 +272,6 @@ export default {
         p {
             margin: .12rem 0;
             font-size: .29rem;
-            // text-overflow: ellipsis;
-            // overflow: hidden;
-            // display: -webkit-box;
-            // -webkit-box-orient: vertical;
-            // -webkit-line-clamp: 1;
             b {
                 margin-right: .3rem;
             }
@@ -332,11 +323,6 @@ export default {
             margin: .12rem 0;
             font-size: .29rem;
             align-self: flex-start;
-            // text-overflow: ellipsis;
-            // overflow: hidden;
-            // display: -webkit-box;
-            // -webkit-box-orient: vertical;
-            // -webkit-line-clamp: 1;
             b {
                 margin-right: .3rem;
             }
@@ -350,16 +336,6 @@ export default {
     border: .02rem solid #ccc;
     font-size: .29rem;
     color: #626e8ae6;
-    cursor: pointer;
-}
-
-.el-icon-video-camera {
-    position: absolute;
-    top: -0.3rem;
-    left: -0.3rem;
-    background-color: rgba(243, 165, 165, 0.753);
-    border-radius: 50%;
-    padding: .1rem;
     cursor: pointer;
 }
 
@@ -456,9 +432,18 @@ export default {
         }
         i {
             position: absolute;
-            top: 31%;
-            left: 90%;
+            top: 50%;
+            left: 82%;
             z-index: 2;
+            transform: translate(-50%, -50%);
+        }
+        span {
+            font-size: .32rem;
+            color: #252925a6;
+            position: absolute;
+            top: 50%;
+            left: 92%;
+            transform: translate(-50%, -50%);
         }
     }
 }

@@ -32,7 +32,7 @@
                         <el-table-column prop="name" label="歌名" >
                             <template slot-scope="scope">
                                 {{scope.row.name}}
-                                <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="myGoMV(item.mvid)"></i>
+                                <i class="el-icon-video-camera icon" v-if="scope.row.mvid !== 0" @click.stop="goMV(scope.row.mvid)"></i>
                             </template>  
                         </el-table-column>
                         <el-table-column prop="artists[0].name" label="歌手" :width="80"></el-table-column>
@@ -43,7 +43,7 @@
                         </el-table-column>
                         <el-table-column prop="duration" label="时长" :width="90">
                             <template slot-scope="scope">
-                                {{scope.row.duration | dateFormat}}
+                                {{scope.row.duration | dateFormat1}}
                             </template>
                         </el-table-column>
                     </el-table>
@@ -53,16 +53,17 @@
                                 <h4>{{item.name}}</h4>
                                 <p>{{item.artists[0].name}}</p>
                                 <i class="el-icon-video-camera icon" v-if="item.mvid !== 0" @click.stop="goMV(item.mvid)"></i>
+                                <span>{{ item.duration | dateFormat1 }}</span>
                             </li>
                         </ul>
                     </div>
                 </el-tab-pane>
                 <el-tab-pane label="歌单" name="1">
                     <div class="playlistsCon">
-                        <div class="onePlaylistsCon" v-for="(item,i) in searchSongsListsRes" :key="i" >
-                            <span class="copywriter">播放量{{item.playCount}}</span>
+                        <div class="onePlaylistsCon" v-for="(item,i) in searchSongsListsRes" :key="i" @click="getSongsListsDetail(item.id)">
+                            <span class="copywriter">播放量{{item.playCount | dateFormat4}}</span>
                             <img :src="item.coverImgUrl">
-                            <a href="javascript:;">
+                            <a>
                                 <svg class="icon" aria-hidden="true">
                                     <use xlink:href="#icon-bofang1"></use>
                                 </svg>
@@ -78,7 +79,7 @@
                                 <use xlink:href="#icon-bofang1"></use>
                             </svg>
                             <img :src="item.cover">
-                            <span class="iconfont icon-bofang">{{item.playCount}}</span>
+                            <span class="iconfont icon-bofang">{{item.playCount | dateFormat4}}</span>
                             <h3>{{item.name}}</h3>
                         </div>
                     </div>
@@ -491,9 +492,18 @@ h2, #p1 {
         }
         i {
             position: absolute;
-            top: 31%;
-            left: 90%;
+            top: 50%;
+            left: 82%;
             z-index: 2;
+            transform: translate(-50%, -50%);
+        }
+        span {
+            font-size: .32rem;
+            color: #252925a6;
+            position: absolute;
+            top: 50%;
+            left: 92%;
+            transform: translate(-50%, -50%);
         }
     }
 }

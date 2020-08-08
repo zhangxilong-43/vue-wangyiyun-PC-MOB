@@ -2,12 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import './plugins/element.js'
 import './assets/css/global.css'
-// import VueVideoPlayer from 'vue-video-player'
-// import 'video.js/dist/video-js.css'
-import "./assets/icon/iconfont.js"
-import './assets/icon/iconfont.css'
+import "../public/icon/iconfont.js"
+import '../public/icon/iconfont.css'
 import './global.js'
 
 import axios from 'axios'
@@ -57,6 +54,15 @@ Vue.filter('dateFormat3', function(originVal) {
     const ss = (dt.getSeconds() + 1 + '').padStart(2, '0')
 
     return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+})
+
+Vue.filter('dateFormat4', function(originVal) {
+    if (originVal >= 10000) {
+        const str = originVal.toString().slice(0, -4)
+        return str + '万'
+    } else {
+        return originVal
+    }
 })
 
 new Vue({

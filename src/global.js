@@ -20,6 +20,7 @@ Vue.prototype.getSongsListsDetail = function(id) {
 }
 
 Vue.prototype.goMV = function(id) {
+    this.$store.commit('removemusicUrl')
     window.sessionStorage.setItem('MVdetailId', id)
     this.$router.history.push('/MVsdetail')
 }

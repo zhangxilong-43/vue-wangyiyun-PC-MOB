@@ -1,25 +1,22 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import Home from '../views/Home.vue'
 
 const Home = () =>
-    import ( /* webpackChunkName:"login_home_welcome" */ '../views/Home.vue')
-    // const Welcome = () =>
-    //     import ( /* webpackChunkName:"login_home_welcome" */ '../components/Welcome.vue')
+    import ( /* webpackChunkName: "home1" */ '../views/Home.vue')
 const Discovery = () =>
-    import ( /* webpackChunkName:"login_home_welcome" */ '../components/discovery/discovery.vue')
+    import ( /* webpackChunkName:"home1" */ '../components/discovery/discovery.vue')
 const Mvs = () =>
-    import ( /* webpackChunkName:"login_home_welcome" */ '../components/mvs/mvs.vue')
+    import ( /* webpackChunkName:"home2" */ '../components/mvs/mvs.vue')
 const Playlists = () =>
-    import ( /* webpackChunkName:"login_home_welcome" */ '../components/playlists/playlists.vue')
+    import ( /* webpackChunkName:"home3" */ '../components/playlists/playlists.vue')
 const Songs = () =>
-    import ( /* webpackChunkName:"login_home_welcome" */ '../components/songs/songs.vue')
+    import ( /* webpackChunkName:"home4" */ '../components/songs/songs.vue')
 const Search = () =>
-    import ( /* webpackChunkName:"login_home_welcome" */ '../components/search/search.vue')
+    import ( /* webpackChunkName:"home4" */ '../components/search/search.vue')
 const SongsListsDetail = () =>
-    import ( /* webpackChunkName:"login_home_welcome" */ '../components/songsListsDetail/songsListsDetail.vue')
+    import ( /* webpackChunkName:"home3Detail" */ '../components/songsListsDetail/songsListsDetail.vue')
 const MVsDetail = () =>
-    import ( /* webpackChunkName:"login_home_welcome" */ '../components/MVsDetail/MVsDetail.vue')
+    import ( /* webpackChunkName:"home2Detail" */ '../components/MVsDetail/MVsDetail.vue')
 
 Vue.use(VueRouter)
 
@@ -41,7 +38,7 @@ const routes = [{
 
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
-    return originalPush.call(this, location).catch(err => err)
+    return originalPush.call(this, location)
 }
 
 const router = new VueRouter({

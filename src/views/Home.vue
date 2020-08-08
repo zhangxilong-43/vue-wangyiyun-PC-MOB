@@ -4,7 +4,7 @@
         <el-container>
 
             <el-aside>
-                <el-menu :collapse="true" background-color="#A9BAC3" active-text-color="#409EFF" router >
+                <el-menu :collapse="true" background-color="#A9BAC3" active-text-color="#409EFF" router>
                     <el-menu-item index="discovery">
                         <el-tooltip class="item" effect="dark" content="发现音乐" placement="right">
                             <i>
@@ -61,12 +61,6 @@
                 </el-main>
 
                 <el-footer>
-                    <!-- <video-player  class="video-player-box"
-                                   ref="videoPlayer"
-                                   :options="playerOptions"
-                                   :playsinline="true"
-                                   customEventName="customstatechangedeventname">
-                    </video-player> -->
                     <audio :src="this.$store.state.musicUrl" autoplay="autoplay" controls="controls" id="music"></audio>
                 </el-footer>
 

@@ -3,13 +3,13 @@
 <!-- 轮播图 -->
         <div class="carousel">
             <el-carousel :interval="4000" type="card" height="200px" v-if="mySrceenWidth > 1200">
-                <el-carousel-item v-for="(item, i) in bannerPCList" :key="i">
+                <el-carousel-item v-for="(item, i) in bannerList" :key="i">
                     <a :href="item.url"> <img :src="item.imageUrl" > </a>
                 </el-carousel-item>
             </el-carousel>
 
             <mt-swipe :auto="4000" v-else>
-                <mt-swipe-item v-for="(item, i) in bannerPCList" :key="i">
+                <mt-swipe-item v-for="(item, i) in bannerList" :key="i">
                     <a :href="item.url"><img :src="item.pic"></a>
                 </mt-swipe-item>
             </mt-swipe>
@@ -61,7 +61,7 @@
                         <use xlink:href="#icon-bofang1"></use>
                     </svg>
                     <img :src="item.picUrl">
-                    <span class="iconfont icon-bofang">{{item.playCount}}</span>
+                    <span class="iconfont icon-bofang">{{item.playCount | dateFormat4}}</span>
                     <h3>{{item.name}}</h3>
                     <p>{{item.artistName}}</p>
                 </div>
@@ -78,11 +78,11 @@ export default {
     name: 'work',
     data() {
         return {
-            bannerPCList: [],
-            bannerMobList: [],
+            bannerList: [],
             songList: [],
             newSongs: [],
             MVList: [],
+            type: 0,
         }
     },
     created() {
@@ -93,10 +93,13 @@ export default {
     },
     methods: {
         async getBannerList() {
-            const { data: PCres } = await this.$http.get('/banner' , { params: { type: 1 } })
-            this.bannerMobList = PCres.banners
-            const { data: Mobres } = await this.$http.get('/banner')
-            this.bannerPCList = Mobres.banners
+            if (this.srceenWidth() > 1200) {
+                this.type = 0
+            } else {
+                this.type = 1
+            }
+            const { data: res } = await this.$http.get('/banner' , { params: { type: this.type } })
+            this.bannerList = res.banners
         },
         async getSongList() {
             const { data: res } = await this.$http.get('/personalized')
@@ -105,7 +108,6 @@ export default {
         async getNewSongs() {
             const { data: res } = await this.$http.get('/personalized/newsong')
             this.newSongs = res.result
-            // console.log(this.newSongs);
         },
         async getMVList() {
             const { data: res } = await this.$http.get('/personalized/mv')

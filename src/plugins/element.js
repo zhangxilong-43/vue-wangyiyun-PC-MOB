@@ -62,26 +62,26 @@ Vue.use(Dialog)
 Vue.use(Input)
 Vue.use(Tag)
 
-import {
-    Swipe,
-    SwipeItem,
-    Cell,
-    Navbar,
-    TabItem,
-    TabContainer,
-    TabContainerItem,
-    InfiniteScroll,
-    Lazyload,
-    Spinner,
-} from 'mint-ui';
+// import {
+//     Swipe,
+//     SwipeItem,
+//     Cell,
+//     Navbar,
+//     TabItem,
+//     TabContainer,
+//     TabContainerItem,
+//     InfiniteScroll,
+//     Lazyload,
+//     Spinner,
+// } from 'mint-ui';
 
-Vue.use(Lazyload);
-Vue.use(InfiniteScroll);
-Vue.component(Cell.name, Cell);
-Vue.component(Swipe.name, Swipe);
-Vue.component(Navbar.name, Navbar);
-Vue.component(TabItem.name, TabItem);
-Vue.component(Spinner.name, Spinner);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(TabContainer.name, TabContainer);
-Vue.component(TabContainerItem.name, TabContainerItem);
+// Vue.use(Lazyload);
+// Vue.use(InfiniteScroll);
+// Vue.component(Cell.name, Cell);
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(Navbar.name, Navbar);
+// Vue.component(TabItem.name, TabItem);
+// Vue.component(Spinner.name, Spinner);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(TabContainer.name, TabContainer);
+// Vue.component(TabContainerItem.name, TabContainerItem);
