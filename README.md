@@ -1,4 +1,4 @@
-# vue-wyymusic
+仿网易云音乐的vue2项目，利用rem布局+element-ui+mint-ui适配PC+移动端
 
 ## Project setup
 ```
@@ -15,10 +15,12 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+详见package.json文件
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+dist文件放在腾讯云的静态网站托管中，可以访问：
+
+https://window-6grrsrcm5807b035-1302834640.tcloudbaseapp.com/#/discovery
+
+前端内容如上，均在库中。前后交互依靠API文档，来自：
+
+https://binaryify.github.io/NeteaseCloudMusicApi/#/
