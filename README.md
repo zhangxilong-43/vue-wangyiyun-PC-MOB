@@ -19,7 +19,7 @@ npm run build
 
 dist文件放在腾讯云的静态网站托管中，可以访问：
 
-https://window-6grrsrcm5807b035-1302834640.tcloudbaseapp.com/#/discovery
+http://vue-wangyiyun3-2g1v10az8e8f24b4-1302834640.tcloudbaseapp.com/#/discovery
 
 前端内容如上，均在库中。前后交互依靠API文档，来自：
 
